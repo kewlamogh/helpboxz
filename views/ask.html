@@ -1,0 +1,41 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+  #topright {
+    float: right;
+    position: sticky;
+    padding: 10px;
+    right: 0px;
+    border: 2px solid white;
+  }
+  button {
+  background-color: green;color: black;border-radius: 10px;outline: none;border: 2px solid black;cursor: pointer}
+  * {
+    color: white;
+    background-color: black;
+    overflow-y: visible;
+  }
+  
+  * {
+    text-align: center;
+  }
+  main {
+    text-align: center;
+  }
+  .bx {
+    border-radius: 30px;
+    border: 2px solid white;
+    height: 150px;
+  }
+  input {
+    outline: none;
+    border: 2px solid white;
+  }
+</style>
+<form action = "/askthequestion">
+  <input name = "title" placeholder="title"></input><br>
+  <textarea name = "Question" placeholder="question"></textarea><br>
+  <button type = "submit">Ask</button>
+</form>

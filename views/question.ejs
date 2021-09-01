@@ -1,0 +1,50 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+  #topright {
+    float: right;
+    position: sticky;
+    padding: 10px;
+    right: 0px;
+    border: 2px solid black;
+    width: 130px;
+  }
+  * {
+    text-align: center;
+  }
+  .bx {
+    border-radius: 20px;
+    border: 2px solid white;
+    margin: 10px;
+    padding: 10px;
+  }
+  input {
+    outline: none;
+    border: 2px solid white;
+  }
+  * {
+    color: white;
+    background-color: black;
+    overflow-y: visible;
+  }
+  button {
+  background-color: green;color: black;border-radius: 10px;outline: none;border: 2px solid black;cursor: pointer}
+</style>
+
+<br/> <div class = ""><h3><%= t %></h2><p><%= msgs.full_question %><br></p><small>Asked By: <%=msgs.askedBy%></small></div>
+<h2>Answers</h2>
+<% for (var i of answers) { %>
+  <% var find = '/'; %>
+  <% var g3 = new RegExp("erwe", 'g')%>
+  <% var re = new RegExp(find, 'g'); %>
+  <div class = "bx"><%- i.replace("|", "<br>") %><br><% if (i != msgs.selectedAnswer.replace(" ", '').replace(g3, "/") && username == msgs.askedBy) { %><button onclick = 'window.location.href = "/markascorrect/<%= t %>/ <%= i.replace(re, "erwe") %>"'>Mark as Correct</button> <% } %><br><% if (i == msgs.selectedAnswer.replace(" ", '').replace(g3, "/")) { %>
+  Selected ✔<% } %></div>
+<% } %>
+<form action = "/answer">
+  <input name = "answer"> </input>
+  <input name= "title" style = "display: none;" value = "<%= t %>"> </input>
+  <input name= "who" style = "display: none;" value = "<%= username %>"> </input>
+  <button type = "submit">Answer</button>
+</form>

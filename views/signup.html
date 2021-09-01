@@ -1,0 +1,41 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+  * {
+    color: white;
+    background-color: black;
+    overflow-y: visible;
+  }
+  #topright {
+    float: right;
+    position: sticky;
+    padding: 10px;
+    width: 150px;
+    right: 0px;
+    border: 2px solid white;
+  }
+  button {
+  background-color: green;color: black;border-radius: 10px;outline: none;border: 2px solid black;cursor: pointer}
+  * {
+    text-align: center;
+  }
+  .bx {
+    border-radius: 30px;
+    border: 2px solid black;
+    height: 150px;
+  }
+  input {
+    border-radius: 20px;
+  }
+  input {
+    outline: none;
+    border: 2px solid white;
+  }
+</style>
+<form action = "/processSignup">
+  <input name = "username" placeholder="username"> </input><br>
+  <input name = "password" type = "password" placeholder="password"> </input><br>
+  <button type = "submit">Signup</button>
+</form>

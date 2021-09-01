@@ -1,0 +1,37 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+  * {
+    color: white;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+  }
+  #topright {
+    float: right;
+    position: sticky;
+    padding: 10px;
+    right: 0px;
+    border: 2px solid white;
+  }
+  a {
+  color: rgb(79, 197, 218);
+  }
+  
+  button {
+  background-color: green;color: black;border-radius: 10px;outline: none;border: 2px solid black;;cursor: pointer}
+  main {
+    text-align: center;
+  }
+  .bx {
+    border-radius: 30px;
+    border: 2px solid white;
+    height: 150px;
+  }
+  a {text-decoration: none;}
+</style>
+<div id = "topright"><%=username%> <button onclick = "window.location.href = '/ask'">ask a question</button></div>
+<h1>Questions</h1>
+  <main>
+  <% for (var i in msgs) { %>
+  <br/> <div class = "bx"><h3><a href = "/questions/<%= i %>"><%= i %></a></h2><p><%= msgs[i].full_question %><br></p><small>asked by: <%=msgs[i].askedBy%></small></div
+  <% } %>
+</main>
