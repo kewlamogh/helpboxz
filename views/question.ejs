@@ -39,7 +39,7 @@
   <% var find = '/'; %>
   <% var g3 = new RegExp("erwe", 'g')%>
   <% var re = new RegExp(find, 'g'); %>
-  <div class = "bx"><%- i.replace("|", "<br>") %><br><% if (i != msgs.selectedAnswer.replace(" ", '').replace(g3, "/") && username == msgs.askedBy) { %><button onclick = 'window.location.href = "/markascorrect/<%= t %>/ <%= i.replace(re, "erwe") %>"'>Mark as Correct</button> <% } %><br><% if (i == msgs.selectedAnswer.replace(" ", '').replace(g3, "/")) { %>
+  <div class = "bx"><%- i.replace("|", "<br>") %><br><% if (i != (msgs.selectedAnswer || "iwaefh[aoiehfa").replace(" ", '').replace(g3, "/") && username == msgs.askedBy) { %><button onclick = 'window.location.href = "/markascorrect/<%= t %>/ <%= i.replace(re, "erwe") %>"'>Mark as Correct</button> <% } %><br><% if (i == (msgs.selectedAnswer || "iwaefh[aoiehfa").replace(" ", '').replace(g3, "/")) { %>
   Selected ✔<% } %></div>
 <% } %>
 <form action = "/answer">

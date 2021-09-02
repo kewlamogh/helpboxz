@@ -17,6 +17,7 @@ function deleteAllInDatabase() {
 }
 
 
+
 app.get("/ask", (req, res) => {
   let cookie = req.cookies["userinfo"];
   if (cookie == null) {
@@ -35,7 +36,6 @@ app.get("/askthequestion", (req, res) => {
       return;
     }
     curr[req.query["title"]] = {tags: ["#idk"], full_question: req.query["Question"], answers: [], selectedAnswer:null, askedBy: cookie.username};
-    console.log(cookie.username)
     db.set("internal/messages", curr).then(() => {});
     res.redirect("/")
   });
@@ -48,7 +48,7 @@ app.get("/markascorrect/:question/:answer", (req, res) => {
     let oof = curr[req.params["question"]]
     if (cookie == null) {
       res.redirect('/login')
-      return;
+      .return;
     }
     oof.selectedAnswer = req.params["answer"];
     curr[req.params["question"]] = oof; 
@@ -84,15 +84,10 @@ app.get("/questions/:question", (req, res) => {
   db.get("internal/messages").then(value => {
     cookie["msgs"] = value[req.params["question"]];
     cookie["t"] = req.params["question"];
-    console.log(cookie);
     cookie["answers"] = cookie["msgs"].answers
     res.render("question", cookie);
   });
 })
-
-db.get("internal/messages").then(value => {
-  console.log(value);
-});
 
 function isvalid(req) {
   let c = req.cookies["userinfo"];
